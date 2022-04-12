@@ -9,12 +9,9 @@ import (
 )
 
 func main() {
-	if err := db.Init(); err != nil {
-		panic(fmt.Sprintf("mysql init failed with %+v", err))
-	}
-
-	http.HandleFunc("/", service.IndexHandler)
-	http.HandleFunc("/api/count", service.CounterHandler)
+	w.Write([]byte("hello"))
+   	 io.WriteString(w, "hello io.writestring")
+   	 fmt.Fprintf(w, "abc")
 
 	log.Fatal(http.ListenAndServe(":80", nil))
 }
